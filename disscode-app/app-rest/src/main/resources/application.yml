@@ -1,0 +1,9 @@
+server:
+  port: 6066
+spring:
+  application:
+    name: app
+  datasource:
+    password: password
+    username: username
+    url: jdbc:mysql://ip:port/db_name?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
