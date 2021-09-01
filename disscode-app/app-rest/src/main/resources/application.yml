@@ -7,3 +7,10 @@ spring:
     password: password
     username: username
     url: jdbc:mysql://ip:port/db_name?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+security:
+  jwt:
+    secret: dumplingbao
+    expiration: 604800 #7Days
+#    exceptUrl: "/**"
+    header: Authorization
+    type: Bearer
