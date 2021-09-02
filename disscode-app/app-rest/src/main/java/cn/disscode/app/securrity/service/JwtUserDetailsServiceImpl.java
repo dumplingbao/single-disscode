@@ -37,6 +37,6 @@ public class JwtUserDetailsServiceImpl implements UserDetailsService {
         SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ADMIN");
         List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
         authorities.add(authority);
-        return new JwtUser(userDto.getUsername(), userDto.getPassword(), userDto.getIndex(), authorities);
+        return new JwtUser(userDto.getUsername(), userDto.getPassword(), userDto.getEnabled(), authorities);
     }
 }

@@ -7,6 +7,7 @@ import cn.disscode.app.securrity.handler.CustomAccessDeniedHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -48,7 +49,14 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
-    private PasswordEncoder passwordEncoder(){
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
 
@@ -63,7 +71,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 // 角色校验时，会自动拼接 "ROLE_"
                 .antMatchers("/role/**").hasAnyRole("ADMIN","USER")
-                .antMatchers("/user/**").permitAll()
+                .antMatchers("/login","/register").permitAll()
                 .antMatchers("/noAuth/**").permitAll()
                 .anyRequest().authenticated()   // 任何请求,登录后可以访问
                 .and().headers().cacheControl();

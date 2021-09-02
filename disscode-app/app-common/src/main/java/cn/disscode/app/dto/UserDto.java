@@ -10,10 +10,14 @@ import lombok.Data;
 @Data
 public class UserDto extends BaseDto {
     private String name;
-    private String password;
     private String email;
     private String mobile;
     private String username;
+    private String password;
     private String description;
+    private Boolean enabled;
+    private Boolean accountNonExpired;
+    private Boolean credentialsNonExpired;
+    private Boolean accountNonLocked;
     private String deleted;
 }

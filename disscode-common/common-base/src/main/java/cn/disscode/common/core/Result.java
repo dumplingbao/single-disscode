@@ -55,7 +55,7 @@ public class Result<T> implements Serializable {
     }
 
     public boolean isSuccess() {
-        return code == 0;
+        return code == 200;
     }
 
     public static <T> Result<T> success(T t) {

@@ -19,14 +19,14 @@ public class JwtUser implements UserDetails {
 
     private String password;
 
-    private Integer state;
+    private Boolean enabled;
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public JwtUser(String username, String password, Integer state, Collection<? extends GrantedAuthority> authorities) {
+    public JwtUser(String username, String password, Boolean enabled, Collection<? extends GrantedAuthority> authorities) {
         this.username = username;
         this.password = password;
-        this.state = state;
+        this.enabled = enabled;
         this.authorities = authorities;
     }
 

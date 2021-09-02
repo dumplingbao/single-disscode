@@ -14,6 +14,10 @@ public enum ResultEnum {
     /**
      * 成功
      */
+    LOGIN_FAIL(100, "登录失败"),
+    /**
+     * 成功
+     */
     SUCCESS(200, "成功"),
     /**
      * 失败
