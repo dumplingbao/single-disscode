@@ -18,8 +18,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
-
 @CrossOrigin
 @RestController
 //@RequestMapping("/login")
@@ -81,18 +79,13 @@ public class LoginController {
     @PostMapping(value = "/register")
     public Result register(@RequestBody UserVo userVo){
         if(StringUtils.isBlank(userVo.getUsername())){
-
+            return Result.fail("用户名不能为空！");
         }
         if(StringUtils.isBlank(userVo.getPassword())){
-
+            return Result.fail("密码不能为空！");
         }
         userVo.setPassword(passwordEncoder.encode(userVo.getPassword()));
 
-        userVo.setCreatedBy("system");
-        userVo.setUpdatedBy("system");
-        Date date = new Date();
-        userVo.setCreatedTime(date);
-        userVo.setUpdatedTime(date);
         userService.save(userVo);
         return Result.success(userVo.getUsername());
     }

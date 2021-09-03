@@ -6,7 +6,7 @@ import cn.disscode.app.vo.UserVo;
 import cn.disscode.common.service.IBaseService;
 
 /**
- * @Author: dumplingbao
+ * @Author: dumplingBao
  * @Date: 2021/8/11
  */
 public interface IUserService extends IBaseService<User, UserDto, UserVo> {

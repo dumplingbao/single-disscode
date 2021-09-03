@@ -1,7 +1,7 @@
 package cn.disscode.app.controller;
 
-import cn.disscode.app.service.IUserService;
-import cn.disscode.app.vo.UserVo;
+import cn.disscode.app.service.IRoleService;
+import cn.disscode.app.vo.RoleVo;
 import cn.disscode.common.controller.BaseController;
 import cn.disscode.common.core.Result;
 import cn.disscode.common.dto.BaseDto;
@@ -14,67 +14,67 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 用户信息
+ * 角色信息
  *
  * @Author: dumplingBao
- * @Date: 2021/8/11
+ * @Date: 2021/9/3
  */
 @CrossOrigin
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/role")
 @Slf4j
-public class UserController extends BaseController<UserVo> {
+public class RoleController extends BaseController<RoleVo> {
 
     @Autowired
-    private IUserService userService;
+    private IRoleService roleService;
 
     @Override
     public IBaseService fetchBaseService() {
-        return userService;
+        return roleService;
     }
 
     /**
      * 保存
      *
-     * @param userVo
+     * @param roleVo
      * @return
      */
     @PostMapping(value = "/save")
-    public Result<BaseDto> save(@RequestBody UserVo userVo) {
-        return super.save(userVo);
+    public Result<BaseDto> save(@RequestBody RoleVo roleVo) {
+        return super.save(roleVo);
     }
 
     /**
      * 分页查询
      *
-     * @param userVo
+     * @param roleVo
      * @return
      */
     @PostMapping(value = "/page")
-    public Result<IPage<BaseDto>> page(@RequestBody UserVo userVo) {
-        return super.page(userVo);
+    public Result<IPage<BaseDto>> page(@RequestBody RoleVo roleVo) {
+        return super.page(roleVo);
     }
 
     /**
      * 列表查询
      *
-     * @param userVo
+     * @param roleVo
      * @return
      */
     @PostMapping(value = "/list")
-    public Result<List<BaseDto>> list(@RequestBody UserVo userVo) {
-        log.info("user list");
-        return super.list(userVo);
+    public Result<List<BaseDto>> list(@RequestBody RoleVo roleVo) {
+        log.info("role list");
+        return super.list(roleVo);
     }
 
     /**
      * 根据ID查询
      *
-     * @param userVo
+     * @param roleVo
      * @return
      */
     @PostMapping(value = "/fetchById")
-    public Result<BaseDto> fetchById(@RequestBody UserVo userVo) {
-        return super.fetchById(userVo.getId());
+    public Result<BaseDto> fetchById(@RequestBody RoleVo roleVo) {
+        return super.fetchById(roleVo.getId());
     }
 }

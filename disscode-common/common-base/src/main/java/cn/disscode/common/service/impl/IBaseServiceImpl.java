@@ -26,6 +26,7 @@ import org.springframework.util.CollectionUtils;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -202,7 +203,19 @@ public class IBaseServiceImpl<M extends BaseMapper<T>, T extends BaseDomain, D e
      * 保存前逻辑处理里
      * @param v
      */
-    protected void beforeSave(V v) {}
+    protected void beforeSave(V v) {
+        Date currentDate = new Date();
+        if (StringUtils.isBlank(v.getId())) {
+            v.setCreatedTime(currentDate);
+        }
+        v.setUpdatedTime(currentDate);
+        if (StringUtils.isBlank(v.getCreatedBy())) {
+            v.setCreatedBy("DEFAULT");
+        }
+        if (StringUtils.isBlank(v.getUpdatedBy())) {
+            v.setUpdatedBy("DEFAULT");
+        }
+    }
 
     /**
      * 保存后逻辑处理

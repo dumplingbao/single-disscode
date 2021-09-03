@@ -1,15 +1,15 @@
 package cn.disscode.app.dao;
 
-import cn.disscode.app.domain.User;
+import cn.disscode.app.domain.Role;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 /**
  * @Author: dumplingBao
- * @Date: 2021/8/11
+ * @Date: 2021/9/3
  */
 @Repository
 @Mapper
-public interface UserMapper extends BaseMapper<User> {
+public interface RoleMapper extends BaseMapper<Role> {
 }
