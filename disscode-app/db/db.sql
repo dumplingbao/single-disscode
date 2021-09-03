@@ -15,6 +15,33 @@ CREATE TABLE users
     account_non_locked      BOOLEAN COMMENT '是否未锁定',
     created_time            DATETIME     NOT NULL DEFAULT now() COMMENT '创建时间',
     updated_time            DATETIME     NOT NULL DEFAULT now() COMMENT '更新时间',
-    created_by              VARCHAR(100) NOT NULL COMMENT '创建人',
-    updated_by              VARCHAR(100) NOT NULL COMMENT '更新人'
+    created_by              VARCHAR(100) NOT NULL DEFAULT 'DEFAULT' COMMENT '创建人',
+    updated_by              VARCHAR(100) NOT NULL DEFAULT 'DEFAULT' COMMENT '更新人'
 ) COMMENT '用户表';
+
+--  角色表
+DROP TABLE IF EXISTS roles;
+CREATE TABLE roles
+(
+    id           VARCHAR(32) PRIMARY KEY COMMENT '角色id',
+    code         VARCHAR(100) NOT NULL COMMENT '角色code',
+    name         VARCHAR(200) COMMENT '角色名称',
+    description  VARCHAR(500) COMMENT '简介',
+    created_time DATETIME     NOT NULL DEFAULT now() COMMENT '创建时间',
+    updated_time DATETIME     NOT NULL DEFAULT now() COMMENT '更新时间',
+    created_by   VARCHAR(100) NOT NULL COMMENT '创建人',
+    updated_by   VARCHAR(100) NOT NULL COMMENT '更新人'
+) COMMENT '角色表';
+
+-- 用户角色表
+DROP TABLE IF EXISTS user_role;
+CREATE TABLE user_role
+(
+    id           VARCHAR(32) PRIMARY KEY COMMENT '关系id',
+    user_id      VARCHAR(32)  NOT NULL COMMENT '用户id',
+    role_id      VARCHAR(32)  NOT NULL COMMENT '角色id',
+    created_time DATETIME     NOT NULL DEFAULT now() COMMENT '创建时间',
+    updated_time DATETIME     NOT NULL DEFAULT now() COMMENT '更新时间',
+    created_by   VARCHAR(100) NOT NULL COMMENT '创建人',
+    updated_by   VARCHAR(100) NOT NULL COMMENT '更新人'
+) COMMENT '用户角色表';
