@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * 业务异常
  *
- * @Author: dumplingbao
+ * @Author: dumplingBao
  * @Date: 2021/8/11
  **/
 @Getter

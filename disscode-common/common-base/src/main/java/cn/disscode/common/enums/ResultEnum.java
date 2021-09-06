@@ -5,7 +5,7 @@ import lombok.Getter;
 /**
  * ResultEnum
  *
- * @Author: dumplingbao
+ * @Author: dumplingBao
  * @Date: 2021/3/11
  */
 @Getter

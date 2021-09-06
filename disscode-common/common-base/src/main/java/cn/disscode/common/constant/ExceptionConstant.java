@@ -3,7 +3,7 @@ package cn.disscode.common.constant;
 /**
  * ExceptionConstant
  *
- * @Author: dumplingbao
+ * @Author: dumplingBao
  * @Date: 2021/8/11
  */
 public class ExceptionConstant {
