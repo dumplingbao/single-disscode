@@ -17,6 +17,7 @@
 
     <modules>
         <module>common-base</module>
+        <module>common-redis</module>
     </modules>
 
     <properties>

@@ -73,6 +73,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/role/**").hasAnyRole("ADMIN","USER")
                 .antMatchers("/login","/register").permitAll()
                 .antMatchers("/noAuth/**").permitAll()
+                .antMatchers("/test/**").permitAll()
                 .anyRequest().authenticated()   // 任何请求,登录后可以访问
                 .and().headers().cacheControl();
 
