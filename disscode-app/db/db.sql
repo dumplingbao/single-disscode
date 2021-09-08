@@ -45,3 +45,34 @@ CREATE TABLE user_role
     created_by   VARCHAR(100) NOT NULL COMMENT '创建人',
     updated_by   VARCHAR(100) NOT NULL COMMENT '更新人'
 ) COMMENT '用户角色表';
+
+-- 菜单表
+DROP TABLE IF EXISTS menus;
+CREATE TABLE menus
+(
+    id           VARCHAR(32) PRIMARY KEY COMMENT 'id',
+    parent_id    VARCHAR(32)  NOT NULL COMMENT '父菜单id',
+    type         VARCHAR(100) COMMENT '菜单类型',
+    href         VARCHAR(200) COMMENT '菜单路径',
+    icon         VARCHAR(200) COMMENT '菜单图标',
+    name         VARCHAR(200) COMMENT '菜单名称',
+    description  VARCHAR(500) COMMENT '描述',
+    order_num    INTEGER COMMENT '创建时间',
+    created_time DATETIME     NOT NULL DEFAULT now() COMMENT '创建时间',
+    updated_time DATETIME     NOT NULL DEFAULT now() COMMENT '更新时间',
+    created_by   VARCHAR(100) NOT NULL COMMENT '创建人',
+    updated_by   VARCHAR(100) NOT NULL COMMENT '更新人'
+) COMMENT '菜单表';
+
+-- 角色菜单表
+DROP TABLE IF EXISTS role_menu;
+CREATE TABLE role_menu
+(
+    id           VARCHAR(32) PRIMARY KEY COMMENT 'id',
+    menu_id      VARCHAR(32)  NOT NULL COMMENT '菜单id',
+    role_id      VARCHAR(32)  NOT NULL COMMENT '角色id',
+    created_time DATETIME     NOT NULL DEFAULT now() COMMENT '创建时间',
+    updated_time DATETIME     NOT NULL DEFAULT now() COMMENT '更新时间',
+    created_by   VARCHAR(100) NOT NULL COMMENT '创建人',
+    updated_by   VARCHAR(100) NOT NULL COMMENT '更新人'
+) COMMENT '角色菜单表';
