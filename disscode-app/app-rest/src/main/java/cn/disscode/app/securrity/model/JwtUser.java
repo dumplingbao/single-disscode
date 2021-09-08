@@ -1,10 +1,12 @@
 package cn.disscode.app.securrity.model;
 
+import cn.disscode.app.dto.UserRoleDto;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  *  JwtUser
@@ -23,11 +25,14 @@ public class JwtUser implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public JwtUser(String username, String password, Boolean enabled, Collection<? extends GrantedAuthority> authorities) {
+    private List<UserRoleDto> userRoles;
+
+    public JwtUser(String username, String password, Boolean enabled, Collection<? extends GrantedAuthority> authorities, List<UserRoleDto> userRoles) {
         this.username = username;
         this.password = password;
         this.enabled = enabled;
         this.authorities = authorities;
+        this.userRoles = userRoles;
     }
 
     @Override

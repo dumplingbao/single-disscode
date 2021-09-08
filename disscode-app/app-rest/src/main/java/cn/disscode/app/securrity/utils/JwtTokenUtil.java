@@ -2,10 +2,14 @@ package cn.disscode.app.securrity.utils;
 
 
 import cn.disscode.app.securrity.model.JwtUser;
+import cn.disscode.common.constant.RedisConstant;
+import cn.disscode.common.utils.RedisUtil;
+import com.alibaba.fastjson.JSONObject;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -25,6 +29,9 @@ import java.util.Map;
 @ConfigurationProperties(prefix = "security.jwt")
 @Component
 public class JwtTokenUtil {
+
+    @Autowired
+    private RedisUtil redisUtil;
 
     private String secret;
 
@@ -72,6 +79,7 @@ public class JwtTokenUtil {
         Map<String, Object> claims = new HashMap<>(2);
         claims.put(Claims.SUBJECT, userDetails.getUsername());
         claims.put(Claims.ISSUED_AT, new Date());
+        putUserDetail(userDetails);
         return generateToken(claims);
     }
 
@@ -137,5 +145,27 @@ public class JwtTokenUtil {
         JwtUser user = (JwtUser) userDetails;
         String username = getUsernameFromToken(token);
         return (username.equals(user.getUsername()) && !isTokenExpired(token));
+    }
+
+    /**
+     * 存储用户缓存
+     *
+     * @param userDetails
+     */
+    private void putUserDetail(UserDetails userDetails) {
+        String key = RedisConstant.REDIS_PREFIX_USER + userDetails.getUsername();
+        redisUtil.set(key, JSONObject.toJSONString(userDetails));
+    }
+
+    /**
+     * 获取用户缓存
+     *
+     * @param token
+     * @return
+     */
+    public UserDetails getUserDetail(String token) {
+        String key = RedisConstant.REDIS_PREFIX_USER + getUsernameFromToken(token);
+        String userDetailStr = redisUtil.get(key);
+        return JSONObject.parseObject(userDetailStr, JwtUser.class);
     }
 }

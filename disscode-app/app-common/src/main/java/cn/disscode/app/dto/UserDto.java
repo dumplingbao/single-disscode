@@ -3,6 +3,8 @@ package cn.disscode.app.dto;
 import cn.disscode.common.dto.BaseDto;
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * @Author: dumplingBao
  * @Date: 2021/8/11
@@ -20,4 +22,5 @@ public class UserDto extends BaseDto {
     private Boolean credentialsNonExpired;
     private Boolean accountNonLocked;
     private String deleted;
+    private List<RoleDto> roleDtoList;
 }

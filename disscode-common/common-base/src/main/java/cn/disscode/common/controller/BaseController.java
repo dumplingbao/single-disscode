@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -18,6 +19,9 @@ import java.util.List;
  * @Date: 2021/8/11
  */
 public abstract class BaseController<V extends BaseVo> {
+
+    @Autowired
+    public HttpServletRequest request;
 
     @Autowired
     public ApplicationContext applicationContext;

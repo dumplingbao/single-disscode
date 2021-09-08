@@ -1,8 +1,11 @@
 package cn.disscode.app.securrity.service;
 
 import cn.disscode.app.dto.UserDto;
+import cn.disscode.app.dto.UserRoleDto;
 import cn.disscode.app.securrity.model.JwtUser;
+import cn.disscode.app.service.IUserRoleService;
 import cn.disscode.app.service.IUserService;
+import cn.disscode.app.vo.UserRoleVo;
 import cn.disscode.app.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -26,6 +29,9 @@ public class JwtUserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     private IUserService userService;
 
+    @Autowired
+    private IUserRoleService userRoleService;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserVo userVo = new UserVo();
@@ -37,6 +43,11 @@ public class JwtUserDetailsServiceImpl implements UserDetailsService {
         SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ADMIN");
         List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
         authorities.add(authority);
-        return new JwtUser(userDto.getUsername(), userDto.getPassword(), userDto.getEnabled(), authorities);
+
+        UserRoleVo userRoleVo = new UserRoleVo();
+        userRoleVo.setUserId(userDto.getId());
+        List<UserRoleDto> userRoleDtoList = userRoleService.list(userRoleVo);
+
+        return new JwtUser(userDto.getUsername(), userDto.getPassword(), userDto.getEnabled(), authorities, userRoleDtoList);
     }
 }
