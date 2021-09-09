@@ -1,12 +1,11 @@
 package cn.disscode.app.service.impl;
 
-import cn.disscode.app.dao.UserRoleMapper;
+import cn.disscode.app.repository.UserRoleMapper;
 import cn.disscode.app.domain.UserRole;
 import cn.disscode.app.dto.RoleDto;
 import cn.disscode.app.dto.UserRoleDto;
 import cn.disscode.app.service.IRoleService;
 import cn.disscode.app.service.IUserRoleService;
-import cn.disscode.app.vo.RoleVo;
 import cn.disscode.app.vo.UserRoleVo;
 import cn.disscode.common.service.impl.IBaseServiceImpl;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
@@ -17,7 +16,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 

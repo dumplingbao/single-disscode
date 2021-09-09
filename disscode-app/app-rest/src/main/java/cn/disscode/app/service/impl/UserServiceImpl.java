@@ -1,6 +1,6 @@
 package cn.disscode.app.service.impl;
 
-import cn.disscode.app.dao.UserMapper;
+import cn.disscode.app.repository.UserMapper;
 import cn.disscode.app.domain.User;
 import cn.disscode.app.dto.UserDto;
 import cn.disscode.app.service.IUserService;

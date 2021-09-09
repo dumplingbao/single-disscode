@@ -1,4 +1,4 @@
-package cn.disscode.app.dao;
+package cn.disscode.app.repository;
 
 import cn.disscode.app.domain.UserRole;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

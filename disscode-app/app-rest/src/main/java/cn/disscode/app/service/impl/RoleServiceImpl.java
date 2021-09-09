@@ -1,6 +1,6 @@
 package cn.disscode.app.service.impl;
 
-import cn.disscode.app.dao.RoleMapper;
+import cn.disscode.app.repository.RoleMapper;
 import cn.disscode.app.domain.Role;
 import cn.disscode.app.dto.RoleDto;
 import cn.disscode.app.service.IRoleService;
