@@ -18,6 +18,7 @@
     <modules>
         <module>common-base</module>
         <module>common-redis</module>
+        <module>common-oss</module>
     </modules>
 
     <properties>
@@ -32,6 +33,7 @@
         <fastjson.version>1.2.75</fastjson.version>
         <common.lang3.version>3.12.0</common.lang3.version>
         <mysql.version>8.0.23</mysql.version>
+        <oss.version>3.13.1</oss.version>
     </properties>
 
     <dependencyManagement>
@@ -91,6 +93,14 @@
                 <artifactId>commons-lang3</artifactId>
                 <version>${common.lang3.version}</version>
             </dependency>
+
+            <!-- oss -->
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${oss.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
