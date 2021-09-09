@@ -1,5 +1,6 @@
 package cn.disscode.app.controller;
 
+import cn.disscode.app.annotations.CurrentUser;
 import cn.disscode.app.securrity.model.JwtUser;
 import cn.disscode.app.securrity.utils.JwtTokenUtil;
 import cn.disscode.common.core.Result;
@@ -63,5 +64,16 @@ public class TestController {
         return Result.success(null);
     }
 
+    /**
+     * test 用户信息
+     *
+     * @return
+     */
+    @PostMapping(value = "/currentUser")
+    public Result currentUser(@CurrentUser JwtUser user) {
+
+        log.info("currentUser: {}", JSONObject.toJSONString(user));
+        return Result.success(null);
+    }
 
 }
