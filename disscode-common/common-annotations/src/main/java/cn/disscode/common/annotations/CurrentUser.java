@@ -1,4 +1,4 @@
-package cn.disscode.app.annotations;
+package cn.disscode.common.annotations;
 
 import java.lang.annotation.*;
 

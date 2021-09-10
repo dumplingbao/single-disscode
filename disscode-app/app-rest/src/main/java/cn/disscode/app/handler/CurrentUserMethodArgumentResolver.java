@@ -1,5 +1,6 @@
-package cn.disscode.app.annotations;
+package cn.disscode.app.handler;
 
+import cn.disscode.common.annotations.CurrentUser;
 import cn.disscode.app.securrity.model.JwtUser;
 import cn.disscode.app.securrity.utils.JwtTokenUtil;
 import lombok.extern.slf4j.Slf4j;

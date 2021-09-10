@@ -19,6 +19,7 @@
         <module>common-base</module>
         <module>common-redis</module>
         <module>common-oss</module>
+        <module>common-annotations</module>
     </modules>
 
     <properties>
