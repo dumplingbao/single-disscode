@@ -5,7 +5,7 @@ spring:
     name: app
   redis:
     database: 0
-    host: localhost
+    host: host
     #password: # Login password of the redis server.
     port: 6379
     timeout: 0
@@ -17,11 +17,19 @@ spring:
   datasource:
     password: password
     username: username
-    url: jdbc:mysql://localhost:3306/db?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+    url: jdbc:mysql://ip:3306/db?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
 security:
   jwt:
     secret: dumplingbao
     expiration: 604800 #7Days
-#    exceptUrl: "/**"
+    #    exceptUrl: "/**"
     header: Authorization
     type: Bearer
+aliyun:
+  oss:  #oss存储相关配置
+    appKey: accessKeyId
+    appSecret: accessKeySecret
+    endpoint: endpoint
+    bucket: bucket
+    url: url
+    dir: dir
