@@ -2,6 +2,7 @@ package cn.disscode.common.config;
 
 import cn.disscode.common.condition.OssCondition;
 import cn.disscode.common.properties.OssProperties;
+import cn.disscode.common.utils.OssUtil;
 import com.aliyun.oss.ClientConfiguration;
 import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.common.auth.DefaultCredentialProvider;
@@ -33,5 +34,10 @@ public class OssConfig {
         // 开启二级域名访问OSS，默认不开启。
         //config.setSLDEnabled(true);
         return new OSSClient(endpoint, defaultCredentialProvider, config);
+    }
+
+    @Bean
+    public OssUtil ossUtil() {
+        return new OssUtil();
     }
 }
