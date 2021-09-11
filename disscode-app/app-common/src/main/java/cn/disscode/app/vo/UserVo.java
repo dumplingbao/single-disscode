@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -29,5 +30,6 @@ public class UserVo extends BaseVo{
     private String password;
     private String description;
     private String deleted;
+    private Date loginTime;
     private Set<String> roleIds;
 }

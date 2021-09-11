@@ -13,6 +13,7 @@ CREATE TABLE users
     account_non_expired     BOOLEAN COMMENT '账号是否未过期',
     credentials_non_expired BOOLEAN COMMENT '密码是否未过期',
     account_non_locked      BOOLEAN COMMENT '是否未锁定',
+    login_time              DATETIME     NOT NULL DEFAULT now() COMMENT '上次登录时间',
     created_time            DATETIME     NOT NULL DEFAULT now() COMMENT '创建时间',
     updated_time            DATETIME     NOT NULL DEFAULT now() COMMENT '更新时间',
     created_by              VARCHAR(100) NOT NULL DEFAULT 'DEFAULT' COMMENT '创建人',

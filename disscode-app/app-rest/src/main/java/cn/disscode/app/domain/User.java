@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * @Author: dumplingBao
  * @Date: 2021/8/11
@@ -24,4 +26,5 @@ public class User extends BaseDomain {
     private Boolean accountNonLocked;
     @TableLogic(value = "N", delval ="Y")
     private String deleted;
+    private Date loginTime;
 }
