@@ -11,4 +11,5 @@ import lombok.Data;
 public class RoleMenuDto extends BaseDto {
     private String roleId;
     private String menuId;
+    private MenuDto menuDto;
 }

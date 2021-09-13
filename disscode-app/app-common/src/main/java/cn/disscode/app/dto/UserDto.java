@@ -24,5 +24,5 @@ public class UserDto extends BaseDto {
     private Boolean accountNonLocked;
     private String deleted;
     private Date loginTime;
-    private List<RoleDto> roleDtoList;
+    private List<UserRoleDto> userRoleDtoList;
 }
