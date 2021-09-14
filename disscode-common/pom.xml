@@ -20,6 +20,7 @@
         <module>common-redis</module>
         <module>common-oss</module>
         <module>common-annotations</module>
+        <module>common-thread</module>
     </modules>
 
     <properties>
