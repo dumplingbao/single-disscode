@@ -8,6 +8,7 @@ import cn.disscode.app.securrity.model.JwtUser;
 import cn.disscode.app.securrity.utils.JwtTokenUtil;
 import cn.disscode.common.annotations.ParamLog;
 import cn.disscode.common.core.Result;
+import cn.disscode.common.service.IAsyncService;
 import cn.disscode.common.utils.OssUtil;
 import cn.disscode.common.utils.RedisUtil;
 import com.alibaba.fastjson.JSONObject;
@@ -52,6 +53,9 @@ public class TestController {
 
     @Autowired
     private LoginTimePublisher loginTimePublisher;
+
+    @Autowired
+    private IAsyncService asyncService;
 
 
     /**
@@ -132,6 +136,18 @@ public class TestController {
 
         // 方式二
         loginTimePublisher.pushListener(userVo);
+        return Result.success(null);
+    }
+
+    /**
+     * test 多线程
+     *
+     * @return
+     */
+    @PostMapping(value = "/thread")
+    public Result thread() {
+        asyncService.executeAsyncCommon();
+        asyncService.executeAsyncCustom();
         return Result.success(null);
     }
 
