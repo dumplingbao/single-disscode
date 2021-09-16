@@ -41,7 +41,7 @@
         </dependency>
         <dependency>
             <groupId>cn.disscode</groupId>
-            <artifactId>common-annnotations</artifactId>
+            <artifactId>common-annotations</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>

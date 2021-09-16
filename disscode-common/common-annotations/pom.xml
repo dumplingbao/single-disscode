@@ -9,9 +9,9 @@
     </parent>
 
     <groupId>cn.disscode</groupId>
-    <artifactId>common-annnotations</artifactId>
+    <artifactId>common-annotations</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>common-annnotations</name>
+    <name>common-annotations</name>
     <description>出入参日志</description>
     <properties>
         <java.version>1.8</java.version>
