@@ -2,6 +2,7 @@ package cn.disscode.app.controller;
 
 import cn.disscode.app.service.IUserService;
 import cn.disscode.app.vo.UserVo;
+import cn.disscode.common.annotations.DataSource;
 import cn.disscode.common.annotations.ParamLog;
 import cn.disscode.common.controller.BaseController;
 import cn.disscode.common.core.Result;
@@ -53,6 +54,7 @@ public class UserController extends BaseController<UserVo> {
      */
     @PostMapping(value = "/page")
     @ParamLog
+    @DataSource("READ")
     public Result<IPage<BaseDto>> page(@RequestBody UserVo userVo) {
         return super.page(userVo);
     }
@@ -64,6 +66,7 @@ public class UserController extends BaseController<UserVo> {
      * @return
      */
     @PostMapping(value = "/list")
+    @DataSource("WRITE")
     public Result<List<BaseDto>> list(@RequestBody UserVo userVo) {
         log.info("user list");
         return super.list(userVo);

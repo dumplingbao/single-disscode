@@ -11,9 +11,16 @@ spring:
       max-wait: -1 #最大等待时间
       min-idle: 0 #初始化连接数
   datasource:
-    password: password
-    username: username
-    url: jdbc:mysql://ip:3306/db?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+    write:
+      password: password
+      username: username
+      jdbc-url: jdbc:mysql://ip:3306/db?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    read:
+      password: password
+      username: username
+      jdbc-url: jdbc:mysql://ip:3306/db?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+      driver-class-name: com.mysql.cj.jdbc.Driver
 security:
   jwt:
     secret: dumplingbao
