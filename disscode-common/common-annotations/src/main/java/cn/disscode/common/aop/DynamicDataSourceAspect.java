@@ -1,6 +1,7 @@
 package cn.disscode.common.aop;
 
 import cn.disscode.common.annotations.DataSource;
+import cn.disscode.common.constant.DataSourceEnum;
 import cn.disscode.common.datasource.DynamicDataSourceContextHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -21,17 +22,17 @@ public class DynamicDataSourceAspect {
     @Before("@annotation(ds)")
     public void changeDataSource(JoinPoint point, DataSource ds) throws Throwable {
         String dsId = ds.value();
-        if (DynamicDataSourceContextHolder.dataSourceIds.contains(dsId)) {
-            log.debug("Use DataSource :{} >", dsId, point.getSignature());
+        if (DataSourceEnum.isInclude(dsId)) {
+            log.info("Use DataSource :{} >", dsId, point.getSignature());
+            DynamicDataSourceContextHolder.setDataSourceRouterKey(dsId);
         } else {
             log.info("数据源[{}]不存在，使用默认数据源 >{}", dsId, point.getSignature());
-            DynamicDataSourceContextHolder.setDataSourceRouterKey(dsId);
         }
     }
 
     @After("@annotation(ds)")
     public void restoreDataSource(JoinPoint point, DataSource ds) {
-        log.debug("Revert DataSource : " + ds.value() + " > " + point.getSignature());
+        log.info("Revert DataSource : " + ds.value() + " > " + point.getSignature());
         DynamicDataSourceContextHolder.removeDataSourceRouterKey();
 
     }

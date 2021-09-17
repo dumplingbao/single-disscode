@@ -12,5 +12,15 @@ public enum DataSourceEnum {
     /**
      * 写数据源
      */
-    WRITE
+    WRITE;
+
+    public static boolean isInclude(String name) {
+        boolean include = false;
+        for(DataSourceEnum e: DataSourceEnum.values()) {
+            if(e.name().equals(name)) {
+                include = true;
+            }
+        }
+        return include;
+    }
 }

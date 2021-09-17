@@ -15,5 +15,5 @@ public class MenuDto extends BaseDto {
     private String icon;
     private String name;
     private String description;
-    private String order;
+    private String sort;
 }

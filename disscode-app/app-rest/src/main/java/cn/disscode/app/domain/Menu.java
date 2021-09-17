@@ -17,5 +17,5 @@ public class Menu extends BaseDomain {
     private String icon;
     private String name;
     private String description;
-    private String order;
+    private String sort;
 }

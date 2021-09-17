@@ -46,8 +46,6 @@ public class DynamicDataSourceContextHolder {
      * @return
      */
     public static boolean containsDataSource(String dataSourceId){
-        dataSourceIds.add(DataSourceEnum.READ.name());
-        dataSourceIds.add(DataSourceEnum.WRITE.name());
         return dataSourceIds.contains(dataSourceId);
     }
 

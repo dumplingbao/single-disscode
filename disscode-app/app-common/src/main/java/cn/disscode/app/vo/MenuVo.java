@@ -28,5 +28,5 @@ public class MenuVo extends BaseVo{
     @NotBlank(message = "菜单名称不能为空")
     private String name;
     private String description;
-    private String order;
+    private String sort;
 }
