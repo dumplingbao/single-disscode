@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 
+/**
+ * @Author: dumplingBao
+ * @Date: 2021/9/9
+ */
 @Component
 public class LoginTimePublisher {
 

@@ -8,6 +8,10 @@ import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @Author: dumplingBao
+ * @Date: 2021/9/16
+ */
 @Slf4j
 @Data
 public class DynamicRoutingDataSource extends AbstractRoutingDataSource {

@@ -11,6 +11,10 @@ import org.springframework.data.redis.core.ZSetOperations.TypedTuple;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @Author: dumplingBao
+ * @Date: 2021/9/9
+ */
 public class RedisUtil extends CachingConfigurerSupport {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;

@@ -14,7 +14,7 @@ import java.io.IOException;
 /**
  * 权限校验处理器
  *
- * @Author: dumplingbao
+ * @Author: dumplingBao
  * @Date: 2021/9/1
  */
 @Component

@@ -8,6 +8,10 @@ import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
+/**
+ * @Author: dumplingBao
+ * @Date: 2021/9/9
+ */
 @Component
 @Slf4j
 public class LoginTimeListener {

@@ -11,7 +11,7 @@ import java.util.List;
 /**
  *  JwtUser
  *
- * @Author: dumplingbao
+ * @Author: dumplingBao
  * @Date: 2021/9/1
  */
 @Data

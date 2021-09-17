@@ -1,5 +1,9 @@
 package cn.disscode.common.constant;
 
+/**
+ * @Author: dumplingBao
+ * @Date: 2021/9/9
+ */
 public interface RedisConstant {
 
     /**

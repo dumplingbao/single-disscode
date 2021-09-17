@@ -24,7 +24,7 @@ import org.springframework.web.filter.CorsFilter;
 /**
  * Spring Security 配置类
  *
- * @Author: dumplingbao
+ * @Author: dumplingBao
  * @Date: 2021/9/1
  */
 @EnableWebSecurity
