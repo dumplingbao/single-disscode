@@ -1,6 +1,5 @@
 package cn.disscode.common.datasource;
 
-import cn.disscode.common.constant.DataSourceEnum;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
