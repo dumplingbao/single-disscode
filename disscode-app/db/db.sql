@@ -77,3 +77,59 @@ CREATE TABLE role_menu
     created_by   VARCHAR(100) NOT NULL COMMENT '创建人',
     updated_by   VARCHAR(100) NOT NULL COMMENT '更新人'
 ) COMMENT '角色菜单表';
+
+-- 用户组表
+DROP TABLE IF EXISTS groups;
+CREATE TABLE groups
+(
+    id           VARCHAR(32) PRIMARY KEY COMMENT 'id',
+    parent_id    VARCHAR(32)  NOT NULL COMMENT '用户组父id',
+    name         VARCHAR(200) COMMENT '用户组名称',
+    description  VARCHAR(500) COMMENT '描述',
+    deleted      VARCHAR(1)   NOT NULL DEFAULT 'N' COMMENT '是否已删除Y：已删除，N：未删除',
+    created_time DATETIME     NOT NULL DEFAULT now() COMMENT '创建时间',
+    updated_time DATETIME     NOT NULL DEFAULT now() COMMENT '更新时间',
+    created_by   VARCHAR(100) NOT NULL COMMENT '创建人',
+    updated_by   VARCHAR(100) NOT NULL COMMENT '更新人'
+) COMMENT '用户组表';
+
+-- 岗位表
+DROP TABLE IF EXISTS positions;
+CREATE TABLE positions
+(
+    id           VARCHAR(32) PRIMARY KEY COMMENT 'id',
+    name         VARCHAR(200) COMMENT '岗位名称',
+    description  VARCHAR(500) COMMENT '描述',
+    deleted      VARCHAR(1)   NOT NULL DEFAULT 'N' COMMENT '是否已删除Y：已删除，N：未删除',
+    created_time DATETIME     NOT NULL DEFAULT now() COMMENT '创建时间',
+    updated_time DATETIME     NOT NULL DEFAULT now() COMMENT '更新时间',
+    created_by   VARCHAR(100) NOT NULL COMMENT '创建人',
+    updated_by   VARCHAR(100) NOT NULL COMMENT '更新人'
+) COMMENT '岗位表';
+
+-- 用户和组关系表
+DROP TABLE IF EXISTS user_group;
+CREATE TABLE user_group
+(
+    id           VARCHAR(32) PRIMARY KEY COMMENT 'id',
+    user_id      VARCHAR(32)  NOT NULL COMMENT '用户id',
+    group_id     VARCHAR(32)  NOT NULL COMMENT '用户组id',
+    created_time DATETIME     NOT NULL DEFAULT now() COMMENT '创建时间',
+    updated_time DATETIME     NOT NULL DEFAULT now() COMMENT '更新时间',
+    created_by   VARCHAR(100) NOT NULL COMMENT '创建人',
+    updated_by   VARCHAR(100) NOT NULL COMMENT '更新人'
+) COMMENT '用户和组表';
+
+
+-- 用户和岗位系表
+DROP TABLE IF EXISTS user_position;
+CREATE TABLE user_position
+(
+    id           VARCHAR(32) PRIMARY KEY COMMENT 'id',
+    user_id      VARCHAR(32)  NOT NULL COMMENT '用户id',
+    position_id  VARCHAR(32)  NOT NULL COMMENT '角色id',
+    created_time DATETIME     NOT NULL DEFAULT now() COMMENT '创建时间',
+    updated_time DATETIME     NOT NULL DEFAULT now() COMMENT '更新时间',
+    created_by   VARCHAR(100) NOT NULL COMMENT '创建人',
+    updated_by   VARCHAR(100) NOT NULL COMMENT '更新人'
+) COMMENT '用户和岗位表';
