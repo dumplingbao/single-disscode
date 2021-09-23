@@ -8,11 +8,13 @@ import cn.disscode.app.service.IUserRoleService;
 import cn.disscode.app.service.IUserService;
 import cn.disscode.app.vo.UserRoleVo;
 import cn.disscode.app.vo.UserVo;
+import cn.disscode.common.annotations.DataSource;
 import cn.disscode.common.service.impl.IBaseServiceImpl;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import lombok.EqualsAndHashCode;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,10 +27,17 @@ import java.util.List;
  * @Date: 2021/8/11
  */
 @Service
+@EqualsAndHashCode(callSuper=false)
 public class UserServiceImpl extends IBaseServiceImpl<UserMapper, User, UserDto, UserVo> implements IUserService {
 
     @Autowired
     private IUserRoleService userRoleService;
+
+    @Override
+    @DataSource("READ")
+    public List<UserDto> list(UserVo userVo) {
+        return super.list(userVo);
+    }
 
     @Override
     public Wrapper<User> beforePage(UserVo userVo) {
