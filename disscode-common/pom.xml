@@ -29,7 +29,7 @@
         <lombok.version>1.18.18</lombok.version>
         <spring.cloud.alibaba.version>2.2.1.RELEASE</spring.cloud.alibaba.version>
         <redis.version>2.3.9.RELEASE</redis.version>
-        <mybatis.version>3.4.2</mybatis.version>
+        <mybatis-plus.version>3.4.2</mybatis-plus.version>
         <validation.version>2.4.3</validation.version>
         <hutool.version>5.5.9</hutool.version>
         <fastjson.version>1.2.75</fastjson.version>
@@ -58,7 +58,7 @@
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis.version}</version>
+                <version>${mybatis-plus.version}</version>
             </dependency>
             <!--redis依赖包-->
             <dependency>
