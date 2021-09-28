@@ -34,7 +34,7 @@ public class UserRoleServiceImpl extends IBaseServiceImpl<UserRoleMapper, UserRo
         if (userRoleVo != null) {
             QueryWrapper<UserRole> queryWrapper = new QueryWrapper<>();
             if (StringUtils.isNotEmpty(userRoleVo.getUserId())) {
-                queryWrapper.eq("user_id", userRoleVo.getUserId());
+                queryWrapper.lambda().eq(UserRole::getUserId, userRoleVo.getUserId());
             }
             return queryWrapper;
         }

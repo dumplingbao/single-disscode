@@ -35,7 +35,7 @@ public class RoleServiceImpl extends IBaseServiceImpl<RoleMapper, Role, RoleDto,
         if (roleVo != null) {
             QueryWrapper<Role> queryWrapper = new QueryWrapper<>();
             if (StringUtils.isNotEmpty(roleVo.getId())) {
-                queryWrapper.eq("id", roleVo.getId());
+                queryWrapper.lambda().eq(Role::getId, roleVo.getId());
             }
             return queryWrapper;
         }

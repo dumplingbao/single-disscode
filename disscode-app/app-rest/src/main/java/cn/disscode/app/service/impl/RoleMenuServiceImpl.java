@@ -33,7 +33,7 @@ public class RoleMenuServiceImpl extends IBaseServiceImpl<RoleMenuMapper, RoleMe
         if (roleMenuVo != null) {
             QueryWrapper<RoleMenu> queryWrapper = new QueryWrapper<>();
             if (StringUtils.isNotEmpty(roleMenuVo.getRoleId())) {
-                queryWrapper.eq("role_id", roleMenuVo.getRoleId());
+                queryWrapper.lambda().eq(RoleMenu::getRoleId, roleMenuVo.getRoleId());
             }
             return queryWrapper;
         }

@@ -44,8 +44,12 @@ public class UserServiceImpl extends IBaseServiceImpl<UserMapper, User, UserDto,
         if (userVo != null) {
             QueryWrapper<User> queryWrapper = new QueryWrapper<>();
             if (StringUtils.isNotEmpty(userVo.getUsername())) {
-                queryWrapper.eq("username", userVo.getUsername());
+                queryWrapper.lambda().eq(User::getUsername, userVo.getUsername());
             }
+            /*
+             * 用户名或邮箱的登录
+            queryWrapper.lambda().and(i -> i.eq(User::getUsername, userVo.getUsername()).or().eq(User::getEmail, userVo.getEmail()));
+             */
             return queryWrapper;
         }
         return Wrappers.emptyWrapper();
