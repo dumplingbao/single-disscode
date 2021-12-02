@@ -6,6 +6,8 @@ import cn.disscode.app.service.IUserService;
 import cn.disscode.app.vo.UserVo;
 import cn.disscode.common.core.Result;
 import cn.disscode.common.enums.ResultEnum;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 //@RequestMapping("/login")
 @Slf4j
+@Api(tags ="登录注册")
 public class LoginController {
 
     @Autowired
@@ -51,6 +54,7 @@ public class LoginController {
      * @return
      */
     @PostMapping(value = "/login")
+    @ApiOperation("登录")
     public Result login(@RequestBody UserVo userVo) {
 
         try {
@@ -82,6 +86,7 @@ public class LoginController {
      * @return
      */
     @PostMapping(value = "/register")
+    @ApiOperation("注册")
     public Result register(@RequestBody UserVo userVo){
         if(StringUtils.isBlank(userVo.getUsername())){
             return Result.fail("用户名不能为空！");

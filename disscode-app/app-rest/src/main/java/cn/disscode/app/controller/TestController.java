@@ -12,6 +12,8 @@ import cn.disscode.common.service.IAsyncService;
 import cn.disscode.common.utils.OssUtil;
 import cn.disscode.common.utils.RedisUtil;
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -34,6 +36,7 @@ import java.util.Date;
 @RestController
 @RequestMapping("/test")
 @Slf4j
+@Api(tags ="验证")
 public class TestController {
 
     @Autowired
@@ -64,6 +67,7 @@ public class TestController {
      * @return
      */
     @PostMapping(value = "/test")
+    @ApiOperation("redis缓存")
     public Result test() {
         redisUtil.set("test", "123456");
         return Result.success(null);
@@ -75,6 +79,7 @@ public class TestController {
      * @return
      */
     @PostMapping(value = "/user")
+    @ApiOperation("获取用户信息")
     public Result user() {
         // 方式一
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -97,6 +102,7 @@ public class TestController {
      */
     @PostMapping(value = "/currentUser")
     @ParamLog
+    @ApiOperation("获取当前用户")
     public Result currentUser(@CurrentUser JwtUser user) {
 
         log.info("currentUser: {}", JSONObject.toJSONString(user));
@@ -109,6 +115,7 @@ public class TestController {
      * @return
      */
     @PostMapping(value = "/upload")
+    @ApiOperation("文件上传")
     public Result upload(@RequestParam("file") MultipartFile file) {
 
         try {
@@ -126,6 +133,7 @@ public class TestController {
      * @return
      */
     @PostMapping(value = "/loginTime")
+    @ApiOperation("登录时间")
     public Result loginTime() {
         UserVo userVo = new UserVo();
         userVo.setId("102");
@@ -145,6 +153,7 @@ public class TestController {
      * @return
      */
     @PostMapping(value = "/thread")
+    @ApiOperation("多线程")
     public Result thread() {
         asyncService.executeAsyncCommon();
         asyncService.executeAsyncCustom();

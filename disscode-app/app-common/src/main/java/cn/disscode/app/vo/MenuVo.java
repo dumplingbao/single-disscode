@@ -1,6 +1,7 @@
 package cn.disscode.app.vo;
 
 import cn.disscode.common.vo.BaseVo;
+import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,6 +19,7 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ApiModel("菜单VO")
 public class MenuVo extends BaseVo{
 
     private String parentId;

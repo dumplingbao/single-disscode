@@ -21,6 +21,7 @@
         <module>common-oss</module>
         <module>common-annotations</module>
         <module>common-thread</module>
+        <module>common-swagger3</module>
     </modules>
 
     <properties>
@@ -37,6 +38,7 @@
         <mysql.version>8.0.23</mysql.version>
         <oss.version>3.13.1</oss.version>
         <druid.version>1.2.6</druid.version>
+        <swagger.version>3.0.0</swagger.version>
     </properties>
 
     <dependencyManagement>
@@ -102,6 +104,13 @@
                 <groupId>com.aliyun.oss</groupId>
                 <artifactId>aliyun-sdk-oss</artifactId>
                 <version>${oss.version}</version>
+            </dependency>
+
+            <!-- swagger -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${swagger.version}</version>
             </dependency>
 
         </dependencies>

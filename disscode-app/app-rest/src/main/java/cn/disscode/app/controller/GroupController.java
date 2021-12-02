@@ -7,6 +7,8 @@ import cn.disscode.common.core.Result;
 import cn.disscode.common.dto.BaseDto;
 import cn.disscode.common.service.IBaseService;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +25,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/group")
 @Slf4j
+@Api(tags ="用户组")
 public class GroupController extends BaseController<MenuVo> {
 
     @Autowired
@@ -40,6 +43,7 @@ public class GroupController extends BaseController<MenuVo> {
      * @return
      */
     @PostMapping(value = "/save")
+    @ApiOperation("保存")
     public Result<BaseDto> save(@RequestBody MenuVo menuVo) {
         return super.save(menuVo);
     }
@@ -51,6 +55,7 @@ public class GroupController extends BaseController<MenuVo> {
      * @return
      */
     @PostMapping(value = "/page")
+    @ApiOperation("分页查询")
     public Result<IPage<BaseDto>> page(@RequestBody MenuVo menuVo) {
         return super.page(menuVo);
     }
@@ -62,6 +67,7 @@ public class GroupController extends BaseController<MenuVo> {
      * @return
      */
     @PostMapping(value = "/list")
+    @ApiOperation("列表查询")
     public Result<List<BaseDto>> list(@RequestBody MenuVo menuVo) {
         log.info("menu list");
         return super.list(menuVo);
@@ -74,6 +80,7 @@ public class GroupController extends BaseController<MenuVo> {
      * @return
      */
     @PostMapping(value = "/fetchById")
+    @ApiOperation("根据ID查询")
     public Result<BaseDto> fetchById(@RequestBody MenuVo menuVo) {
         return super.fetchById(menuVo.getId());
     }
