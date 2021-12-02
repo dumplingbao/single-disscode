@@ -74,6 +74,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login","/register").permitAll()
                 .antMatchers("/noAuth/**").permitAll()
                 .antMatchers("/test/**").permitAll()
+                .antMatchers("/swagger-ui/**","/swagger-resources/**","/v3/**","/swagger-ui/index.html/**").permitAll()
                 .anyRequest().authenticated()   // 任何请求,登录后可以访问
                 .and().headers().cacheControl();
 
