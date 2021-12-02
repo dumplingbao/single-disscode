@@ -5,3 +5,12 @@ spring:
     name: app
   profiles:
     active: @active.profile@
+swagger3:
+  config:
+    basePackage: "cn.disscode.app.controller"
+    title: "single-disscode"
+    description: "单应用框架"
+    contactName: "dumplingbao"
+    contactUrl: "https://dumplingbao.github.io/"
+    contactEmail: "bmm_java@163.com"
+    version: "1.0"
